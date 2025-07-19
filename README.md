@@ -21,7 +21,6 @@ With Reads, users can:
 ---
 
 ###  UI Preview
-
 ![Reads App Preview](reads_posters/Reads_poster.png)
 
 ---
