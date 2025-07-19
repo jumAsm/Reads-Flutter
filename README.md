@@ -21,16 +21,17 @@ With Reads, users can:
 ---
 
 ###  UI Preview
+
 ![Reads App Preview](reads_posters/Reads_poster.png)
 
 ---
 
 ### 🛠 Tech Stack
 
-- **Flutter** – for building the UI  
-- **Hive** – for lightweight local storage  
-- **Bloc (Cubit)** – for managing state  
-- **Lottie** – for animated splash screen  
+- **Flutter** – for building the UI
+- **Hive** – for lightweight local storage
+- **Bloc (Cubit)** – for managing state
+- **Lottie** – for animated splash screen
 - **Firebase Hosting** – to deploy as a PWA
 
 ---
@@ -44,4 +45,4 @@ With Reads, users can:
 ### 👤 Created by
 
 **jumAsm**  
-July 2025 🌼
+July 2025 
