@@ -1,4 +1,4 @@
-## Reads – Personal Reading Tracker App (Built with Flutter)
+## <img src="reads_posters/reads_icon.png" alt="Reads Icon" width="20"/> Reads – Personal Reading Tracker App (Built with Flutter)
 
 **Reads** is a lightweight Flutter-based mobile application designed to help users log and manage their reading progress in a simple and visually friendly way.
 
