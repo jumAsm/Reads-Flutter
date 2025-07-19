@@ -1,16 +1,48 @@
-# reads
+## Reads – Personal Reading Tracker App (Built with Flutter)
 
-A new Flutter project.
+**Reads** is a lightweight Flutter-based mobile application designed to help users log and manage their reading progress in a simple and visually friendly way.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+###  About the App
 
-A few resources to get you started if this is your first Flutter project:
+Reads was built as a personal solution to a real need:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+> *"I often read from multiple sources and forget where I left off."*
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+With Reads, users can:
+
+- Create and manage reading entries
+- Track chapters or sections they've read
+- Add personal notes
+- Tag the read status: `On Going`, `Stopped`, or `Completed`
+- Browse a clean and minimal read library
+
+---
+
+###  UI Preview
+
+> *(Add image preview here if needed)*
+
+---
+
+### 🛠 Tech Stack
+
+- **Flutter** – for building the UI  
+- **Hive** – for lightweight local storage  
+- **Bloc (Cubit)** – for managing state  
+- **Lottie** – for animated splash screen  
+- **Firebase Hosting** – to deploy as a PWA
+
+---
+
+###  Live Demo
+
+📲 Try it now: [https://reads-app-web.web.app](https://reads-app-web.web.app)
+
+---
+
+### 👤 Created by
+
+**jumAsm**  
+July 2025 🌼
