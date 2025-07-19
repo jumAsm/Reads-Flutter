@@ -22,7 +22,7 @@ With Reads, users can:
 
 ###  UI Preview
 
-> *(Add image preview here if needed)*
+![Reads App Preview](reads_posters/Reads_poster.png)
 
 ---
 
