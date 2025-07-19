@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:reads/cubits/add_cubits/add_read_cubit.dart';
-
 import '../constants/colors.dart';
 
 class ColorItem extends StatelessWidget {
@@ -21,13 +18,12 @@ class ColorItem extends StatelessWidget {
           decoration: BoxDecoration(
             color: isPicked ? Colors.black : color,
             border: Border.all(
-              color: isPicked ? jblue : backWhite ,
-              width: 1.7,
+              color: isPicked ? jblue : backWhite,
+              width: isPicked ? 3 : 1.7,
             ),
             borderRadius: BorderRadius.circular(14.0),
           ),
           height: 32,
-          width: 165,
           child: Center(
             child: Text(
               label,
@@ -45,7 +41,8 @@ class ColorItem extends StatelessWidget {
 }
 
 class ColorsListView extends StatefulWidget {
-  const ColorsListView({super.key});
+  final Function(String label) onSelected;
+  const ColorsListView({super.key, required this.onSelected});
 
   @override
   State<ColorsListView> createState() => _ColorsListViewState();
@@ -62,27 +59,30 @@ class _ColorsListViewState extends State<ColorsListView> {
     'On Going',
     'Completed',
   ];
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 36,
-      child: SingleChildScrollView(
-        child: Row(
-          children: List.generate(colors.length, (index) {
-            return GestureDetector(
+      width: 358,
+      child: Row(
+        children: List.generate(colors.length, (index) {
+          return Expanded(
+            child: GestureDetector(
               onTap: () {
                 setState(() {
                   currentIndex = index;
                 });
+                widget.onSelected(labels[index]);
               },
               child: ColorItem(
                 color: colors[index],
                 isPicked: currentIndex == index,
                 label: labels[index],
               ),
-            );
-          }),
-        ),
+            ),
+          );
+        }),
       ),
     );
   }

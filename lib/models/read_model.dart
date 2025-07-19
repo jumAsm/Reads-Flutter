@@ -13,11 +13,20 @@ class ReadModel extends HiveObject{
    String noteRead;
   @HiveField(3)
   int color;
+  @HiveField(4)
+  late String status;
+  @HiveField(5)
+  late int statusColor;
+  @HiveField(6)
+  bool isFavorite;
 
   ReadModel({
     required this.titleRead,
     required this.chapterRead,
     required this.noteRead,
-    required this.color
+    required this.color,
+    required this.status,
+    required this.statusColor,
+    required this.isFavorite,
   });
 }

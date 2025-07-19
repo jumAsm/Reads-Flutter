@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:reads/widget/library_page.dart';
 import 'package:reads/widget/reads_list_view.dart';
 import 'package:reads/widget/search_box.dart';
-
 import 'cubits/notes_cubit/notes_cubit.dart';
 
 class HomePageBody extends StatefulWidget {
@@ -14,50 +14,78 @@ class HomePageBody extends StatefulWidget {
 }
 
 class _HomePageBodyState extends State<HomePageBody> {
+  final TextEditingController searchController = TextEditingController();
+  String currentSearchText = '';
 
   @override
   void initState() {
     BlocProvider.of<NotesCubit>(context).fetchAllReads();
     super.initState();
   }
-//final ReadModel read;
+
+  void _filterReads(String value) {
+    setState(() {
+      currentSearchText = value.toLowerCase();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery
-        .of(context)
-        .size
-        .width;
     return Column(
       children: [
-        SizedBox(height: 10),
-        // Read Title
-        Center(
-          child: Text(
-            'Reads',
-            style: GoogleFonts.unbounded(
-              color: Colors.black,
-              fontSize: screenWidth * 0.075,
-              fontWeight: FontWeight.w700,
-            ),
+        const SizedBox(height: 15),
+
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Reads',
+                style: GoogleFonts.unbounded(
+                  color: Colors.black,
+                  fontSize: 33,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LibraryPage()),
+                  );
+                },
+                icon: Image.asset(
+                  'lib/assets/shelf.png',
+                  height: 30,
+                  width: 30,
+                ),
+              ),
+            ],
           ),
         ),
-        SizedBox(height: 10),
-        SearchBox(),
-        SizedBox(height: 15),
-        // Previous Reads
+
+        const SizedBox(height: 15),
+        SearchBox(
+          controller: searchController,
+          onChanged: _filterReads,
+        ),
+        const SizedBox(height: 20),
         Container(
-          alignment: Alignment(-0.95, 0),
+          alignment: const Alignment(-0.9, 0),
           child: Text(
             'Previous Reads',
             style: GoogleFonts.mPlus1(
-              fontSize: screenWidth * 0.06,
+              fontSize: 25,
               color: Colors.black,
               fontWeight: FontWeight.w700,
             ),
           ),
         ),
-        SizedBox(height: 5),
-        Expanded(child: Readslistview()),
+        const SizedBox(height: 5),
+        Expanded(
+          child: Readslistview(searchQuery: currentSearchText),
+        ),
       ],
     );
   }

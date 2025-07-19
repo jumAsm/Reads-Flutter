@@ -1,61 +1,77 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:reads/constants/colors.dart';
 import 'package:reads/models/read_model.dart';
 import 'package:reads/widget/edit_read_page.dart';
 
 class ReadItem extends StatelessWidget {
-
-  const ReadItem({super.key, required this.read, required this.s});
- final Color s;
+  const ReadItem({super.key, required this.read});
   final ReadModel read;
+
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    Widget leadingWidget;
+
+    if (read.status == 'Completed') {
+      leadingWidget = checkRead();
+      if (read.isFavorite) {
+        leadingWidget = likedRead();
+      }
+    } else if (read.status == 'Stopped') {
+      leadingWidget = stopRead();
+    } else if (read.status == 'On Going' && read.isFavorite) {
+      leadingWidget = likedRead();
+    } else {
+      leadingWidget = SizedBox(
+        height: 55,
+        width: 55,
+        child: Center(
+          child: Image.asset(
+            'lib/assets/flowerShap.png',
+            height: 45,
+            width: 45,
+          ),
+        ),
+      );
+    }
+
+    final textColor = (read.status == 'Completed' || read.status == 'Stopped')
+        ? backWhite
+        : Colors.black;
 
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
-            builder: (context) {
-              return EditReadPage(
-                reads: read,
-              );
-            },
-          ),
+          MaterialPageRoute(builder: (context) => EditReadPage(reads: read)),
         );
       },
       child: Container(
-        margin: EdgeInsets.only(bottom: 2, top: 2, left: 8, right: 8),
-        padding: EdgeInsets.symmetric(vertical: 6),
+        padding: EdgeInsets.symmetric(vertical: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 8),
         decoration: BoxDecoration(
-          color: s,
-          borderRadius: BorderRadius.circular(20),
+          color: Color(read.statusColor),
+          borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
           children: [
             ListTile(
-              leading: Image.asset('lib/assets/flowerShap.png'),
+              leading: leadingWidget,
               title: Text(
                 read.titleRead,
                 style: GoogleFonts.inter(
-                  fontSize: screenWidth * 0.055,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
-                ),
-              ),
-              subtitle: Text(
-                read.chapterRead,
-                style: GoogleFonts.inter(
-                  fontSize: screenWidth * 0.04,
+                  fontSize: 18,
                   fontWeight: FontWeight.w500,
-                  color: Colors.black,
+                  color: textColor,
                 ),
               ),
-              trailing: Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.black,
-                size: screenWidth * 0.05,
+              trailing: Text(
+                read.chapterRead,
+                style: GoogleFonts.figtree(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: textColor,
+                ),
               ),
             ),
           ],
@@ -63,4 +79,30 @@ class ReadItem extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget checkRead() {
+  return SizedBox(
+    width: 55,
+    height: 55,
+    child: Center(
+      child: (Image.asset('lib/assets/completed.png', height: 40, width: 40)),
+    ),
+  );
+}
+
+Widget stopRead() {
+  return SizedBox(
+    width: 55,
+    height: 55,
+    child: Center(child: Icon(Icons.stop_circle, size: 40, color: backWhite)),
+  );
+}
+
+Widget likedRead() {
+  return SizedBox(
+    width: 56,
+    height: 56,
+    child: Center(child: Icon(Icons.favorite, size: 40, color: jLike)),
+  );
 }

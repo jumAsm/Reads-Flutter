@@ -21,13 +21,16 @@ class ReadModelAdapter extends TypeAdapter<ReadModel> {
       chapterRead: fields[1] as String,
       noteRead: fields[2] as String,
       color: fields[3] as int,
+      status: fields[4] as String,
+      statusColor: fields[5] as int,
+      isFavorite: fields[6] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, ReadModel obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.titleRead)
       ..writeByte(1)
@@ -35,7 +38,13 @@ class ReadModelAdapter extends TypeAdapter<ReadModel> {
       ..writeByte(2)
       ..write(obj.noteRead)
       ..writeByte(3)
-      ..write(obj.color);
+      ..write(obj.color)
+      ..writeByte(4)
+      ..write(obj.status)
+      ..writeByte(5)
+      ..write(obj.statusColor)
+      ..writeByte(6)
+      ..write(obj.isFavorite);
   }
 
   @override

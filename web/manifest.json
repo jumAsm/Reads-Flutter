@@ -1,11 +1,11 @@
 {
-    "name": "reads",
-    "short_name": "reads",
+    "name": "Reads App",
+    "short_name": "Reads",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "description": "A delightful reading tracker made with Flutter.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
@@ -23,13 +23,14 @@
             "src": "icons/Icon-maskable-192.png",
             "sizes": "192x192",
             "type": "image/png",
-            "purpose": "maskable"
+            "purpose": "maskable",
+            "type": "image/png"
         },
         {
             "src": "icons/Icon-maskable-512.png",
             "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "maskable"
+            "purpose": "maskable",
+            "type": "image/png"
         }
     ]
 }

@@ -17,7 +17,7 @@ class  AddNewButton extends StatelessWidget {
     borderRadius: BorderRadius.circular(16),
      color: backWhite,
      ),
-       width: 358,  // 90% of screen width
+       width: 358,
        height: 45,
        child: Center(
          child: isLoading?  SizedBox(

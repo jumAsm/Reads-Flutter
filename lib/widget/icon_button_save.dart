@@ -8,13 +8,13 @@ class IconButtonSave extends StatelessWidget {
   final void Function()? onPreesed;
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+
 
     return GestureDetector(
       onTap: onPreesed,
       child: Container(
-        width: screenWidth * 0.9,
-        height: 46,
+        width: 370,
+        height: 48,
         decoration: BoxDecoration(
           color: Colors.black,
           borderRadius: BorderRadius.circular(16),
@@ -24,7 +24,7 @@ class IconButtonSave extends StatelessWidget {
             'Done',
             style: GoogleFonts.inter(
               color: backWhite,
-              fontSize: screenWidth * 0.06,
+              fontSize:22,
               fontWeight: FontWeight.w600,
             ),
           ),
