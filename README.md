@@ -38,11 +38,11 @@ With Reads, users can:
 
 ###  Live Demo
 
-📲 Try it now: [https://reads-app-web.web.app](https://reads-app-web.web.app)
+Try it now: [https://reads-app-web.web.app](https://reads-app-web.web.app)
 
 ---
 
-### 👤 Created by
+### Created by
 
 **jumAsm**  
 July 2025 
