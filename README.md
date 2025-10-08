@@ -4,7 +4,7 @@
 
 ---
 
-###  About the App
+### About the App
 
 Reads was built as a personal solution to a real need:
 
@@ -20,13 +20,13 @@ With Reads, users can:
 
 ---
 
-###  UI Preview
+### UI Preview
 
 ![Reads App Preview](reads_posters/Reads_poster.png)
 
 ---
 
-### 🛠 Tech Stack
+### Tech Stack
 
 - **Flutter** – for building the UI
 - **Hive** – for lightweight local storage
@@ -36,7 +36,7 @@ With Reads, users can:
 
 ---
 
-###  Live Demo
+### Live Demo
 
 Try it now: [https://reads-app-web.web.app](https://reads-app-web.web.app)
 
